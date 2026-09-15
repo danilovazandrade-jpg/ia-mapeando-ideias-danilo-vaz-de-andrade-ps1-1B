@@ -1,0 +1,224 @@
+/* --- VARIÁVEIS E CORES --- */
+:root {
+    --azul-escuro: #0f2a4a;
+    --azul-primario: #1d5288;
+    --verde-sucesso: #2e7d32;
+    --verde-claro: #e8f5e9;
+    --amarelo-destaque: #fbc02d;
+    --amarelo-alerta: #fff9c4;
+    --fundo: #f4f7f6;
+    --texto: #333333;
+    --brancao: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--fundo);
+    color: var(--texto);
+    padding-bottom: 40px;
+}
+
+/* --- HEADER --- */
+header {
+    background: linear-gradient(135deg, var(--azul-escuro), var(--azul-primario));
+    color: var(--brancao);
+    text-align: center;
+    padding: 30px 20px;
+    border-bottom: 5px solid var(--amarelo-destaque);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+    text-transform: capitalize;
+}
+
+header p {
+    font-size: 0.95rem;
+    color: #d1e3f8;
+}
+
+/* --- CONTAINER PRINCIPAL --- */
+.container {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    font-size: 1.3rem;
+    color: var(--azul-escuro);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-left: 5px solid var(--verde-sucesso);
+    padding-left: 10px;
+}
+
+.section-title.incomodos {
+    border-left-color: var(--amarelo-destaque);
+}
+
+/* --- GRID DE CARDS --- */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+/* --- ESTILO DO CARD --- */
+.card {
+    background-color: var(--brancao);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    border-top: 4px solid var(--verde-sucesso);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card.insatisfacao {
+    border-top-color: var(--amarelo-destaque);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.tag {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-weight: bold;
+}
+
+.tag.estudo {
+    background-color: var(--verde-claro);
+    color: var(--verde-sucesso);
+}
+
+.tag.alerta {
+    background-color: var(--amarelo-alerta);
+    color: #856404;
+}
+
+.card h3 {
+    font-size: 1.1rem;
+    color: var(--azul-escuro);
+    margin-bottom: 8px;
+}
+
+.card p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+.card-footer {
+    margin-top: 15px;
+    font-size: 0.8rem;
+    color: var(--azul-primario);
+    font-weight: bold;
+    text-align: right;
+}
+
+/* --- MODAL --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 42, 74, 0.6);
+    backdrop-filter: blur(3px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: var(--brancao);
+    width: 90%;
+    max-width: 500px;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    position: relative;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #888;
+}
+
+.close-btn:hover {
+    color: var(--texto);
+}
+
+.modal-title {
+    color: var(--azul-escuro);
+    margin-bottom: 10px;
+}
+
+.modal-body {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: var(--azul-primario);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--azul-escuro);
+}

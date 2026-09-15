@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizador de rotinas estudos do danilo vaz de andrade</title>
+    <!-- Vinculação do arquivo CSS externo -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- CABEÇALHO -->
+    <header>
+        <h1>Organizador de rotinas estudos do danilo vaz de andrade</h1>
+        <p>Protótipo de acompanhamento de tarefas, focos e desafios diários</p>
+    </header>
+
+    <div class="container">
+
+        <!-- SEÇÃO 1: ORGANIZAÇÃO DE ESTUDOS -->
+        <h2 class="section-title">📚 Organização de Estudos</h2>
+        <div class="cards-grid">
+            
+            <div class="card" onclick="openModal('Revisão de Matemática', 'Estudo focado em Álgebra Linear. Resolver a lista de exercícios 3 e revisar os conceitos de matrizes.')">
+                <div class="card-header">
+                    <span class="tag estudo">Estudos</span>
+                    <small>09:00 - 10:30</small>
+                </div>
+                <h3>Revisão de Matemática</h3>
+                <p>Resolver a lista de exercícios 3 de Álgebra Linear e revisar os tópicos...</p>
+                <div class="card-footer">Clique para ver mais ➔</div>
+            </div>
+
+            <div class="card" onclick="openModal('Leitura de História', 'Ler os capítulos 4 e 5 do livro indicado pelo professor sobre o período da Revolução Industrial.')">
+                <div class="card-header">
+                    <span class="tag estudo">Estudos</span>
+                    <small>14:00 - 15:30</small>
+                </div>
+                <h3>Leitura de História</h3>
+                <p>Capítulos 4 e 5: Revolução Industrial e suas consequências sociais...</p>
+                <div class="card-footer">Clique para ver mais ➔</div>
+            </div>
+
+            <div class="card" onclick="openModal('Simulado de Redação', 'Elaborar uma redação com o tema proposto da semana passada para treino de tempo.')">
+                <div class="card-header">
+                    <span class="tag estudo">Estudos</span>
+                    <small>16:00 - 17:30</small>
+                </div>
+                <h3>Simulado de Redação</h3>
+                <p>Treinar escrita com o tema da semana, focando em manter a estrutura em 1h...</p>
+                <div class="card-footer">Clique para ver mais ➔</div>
+            </div>
+
+        </div>
+
+        <!-- SEÇÃO 2: INCÔMODOS E INSATISFAÇÕES DA ROTINA -->
+        <h2 class="section-title incomodos">⚠️ Incômodos & Insatisfações do Dia</h2>
+        <div class="cards-grid">
+
+            <div class="card insatisfacao" onclick="openModal('Procrastinação / Distrações', 'Perdi muito tempo nas redes sociais antes de começar a estudar pela manhã. Preciso testar a técnica Pomodoro ou deixar o celular em outro cômodo.')">
+                <div class="card-header">
+                    <span class="tag alerta">Desafio</span>
+                    <small>Manhã</small>
+                </div>
+                <h3>Procrastinação / Distrações</h3>
+                <p>Uso excessivo do celular antes do bloco de estudos da manhã...</p>
+                <div class="card-footer">Clique para ver mais ➔</div>
+            </div>
+
+            <div class="card insatisfacao" onclick="openModal('Cansaço Excessivo à Tarde', 'Senti muito sono após o almoço e o rendimento caiu na hora de ler História. Solução: Fazer uma pausa ativa ou caminhar 10 minutos.')">
+                <div class="card-header">
+                    <span class="tag alerta">Insatisfação</span>
+                    <small>Tarde</small>
+                </div>
+                <h3>Cansaço Excessivo à Tarde</h3>
+                <p>Queda brusca de energia após o almoço impactou o bloco de leitura...</p>
+                <div class="card-footer">Clique para ver mais ➔</div>
+            </div>
+
+            <div class="card insatisfacao" onclick="openModal('Ambiente Barulhento', 'Barulho de obras na rua atrapalhou a concentração nos cálculos. Ação: Usar protetor auricular ou música instrumental.')">
+                <div class="card-header">
+                    <span class="tag alerta">Ambiente</span>
+                    <small>Geral</small>
+                </div>
+                <h3>Ambiente Barulhento</h3>
+                <p>Ruídos externos dificultaram o foco. Ação tomada: Uso de fones de ouvido...</p>
+                <div class="card-footer">Clique para ver mais ➔</div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- MODAL -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal()">&times;</button>
+            <h2 class="modal-title" id="modalTitle">Título da Tarefa</h2>
+            <br>
+            <div class="modal-body" id="modalBody">
+                Detalhes da tarefa ou do incômodo vão aparecer aqui...
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-primary" onclick="closeModal()">Entendido</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- LÓGICA DO MODAL EM JAVASCRIPT -->
+    <script>
+        function openModal(title, description) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalBody').innerText = description;
+            document.getElementById('modalOverlay').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('modalOverlay').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('modalOverlay');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
